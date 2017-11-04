@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 
+function arrayShuffle(arr) {
+  let retval = arr.slice();
+  let m = retval.length, t, i;
+  while (m) {
+    i = Math.floor(Math.random() * m--);
+    t = retval[m];
+    retval[m] = retval[i];
+    retval[i] = t;
+  }
+  return retval;
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +36,7 @@ class App extends Component {
   }
 
   shuffle() {
-    let shuffledList = this.state.names.sort(function() { return 0.5 - Math.random() });
+    let shuffledList = arrayShuffle(this.state.names);
     let groups = [];
     for (let i = 0; i < shuffledList.length; i++) {
       if (i % 4 === 0) {
