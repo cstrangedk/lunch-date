@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Cards from './components/Cards';
+import PeopleList from './components/PeopleList';
 import './App.css';
 
 function arrayShuffle(arr) {
@@ -50,16 +52,10 @@ class App extends Component {
   render() {
     let groups = this.shuffle();
 
-    let cards = groups.map((group, i) => <div className="Card" key={'card' + i}>
-        {group.map((name, i) => <span className="item" key={'item' + i}>{name}</span>)}
-      </div>);
-
     return (
       <div className="App">
-        <div className="NameList">
-         {this.state.names.map((name, i) => <p key={'main' + i}>{name}</p>)}
-        </div>
-        {cards}
+        <PeopleList people={this.state.names} />
+        <Cards groups={groups}/>
       </div>
     );
   }
