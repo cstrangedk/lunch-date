@@ -1,5 +1,7 @@
 .App {
+  display: flex;
   text-align: center;
+  background-color: #CCC;
 }
 
 .App-logo {
@@ -25,4 +27,50 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.List {
+  background-color: #FFF;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.List div {
+  /* border-bottom: thin solid #555555; */
+}
+
+.Cards {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 6;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.Card {
+  background-color: #FFF;
+  max-width: 120px;
+  margin: 15px 15px;
+  border-radius: 2px;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+}
+
+.Person {
+  /* display: flex; */
+  /* align-items: center; */
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.Person:last-child {
+  border-bottom: 0;
+}
+
+p {
+  margin: 0;
+  padding: 8px;
+  /* transition: background 0.2s; */
+  /* flex: 1; */
+  font-family: 'helvetica neue';
+  font-size: 10px;
+  font-weight: 200;
 }

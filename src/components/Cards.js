@@ -16,7 +16,7 @@ class Cards extends React.Component {
         );
 
         return(
-            <div>
+            <div className="Cards">
                 {cards}
             </div>
         )
