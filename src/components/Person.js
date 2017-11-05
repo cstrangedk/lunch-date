@@ -7,15 +7,16 @@ class Person extends React.Component {
 
         return (
             <div className="Person">
-                <p>
+                <span className="name">
                     {name}
-                    {options ?
-                        <span style={{float: "right"}}>
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i><i class="fa fa-trash-o" aria-hidden="true"></i>
-                        </span>
-                        : null
-                    }
-                </p>
+                </span>
+                {options ?
+                    <span className="icons">
+                        <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        <i className="fa fa-trash-o" aria-hidden="true"></i>
+                    </span>
+                    : null
+                }
             </div>
         )
     }

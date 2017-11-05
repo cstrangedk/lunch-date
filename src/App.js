@@ -20,7 +20,7 @@ class App extends Component {
     super(props);
     this.state = {
       names: [
-        'John Tuthill',
+        'John Muthill',
         'Kathy Belrose',
         'Jack Sanberg',
         'Jill Stolen',
@@ -32,7 +32,18 @@ class App extends Component {
         'Irving Chernov',
         'Vladimir Putin',
         'Wang Ho',
-        'Frank Doe'
+        'Frank Doe',
+        'Doopak Landamasky',
+        'Robert Miles',
+        'Hector Morales',
+        'Gerard Nizarros',
+        'Pancho Via',
+        'Guy Fawkes',
+        'Elmer Maricio Cruz Garcia',
+        'Antonio Maria Rossini',
+        'Derek Jennen',
+        'Stephen Jing',
+        'Hooko Wilcox'
       ]
     };
   }

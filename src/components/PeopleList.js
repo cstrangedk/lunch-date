@@ -1,10 +1,6 @@
 import React from 'react';
 import Person from './Person';
 
-// <div className="NameList">
-// {this.state.names.map((name, i) => <p key={'main' + i}>{name}</p>)}
-// </div>
-
 class PeopleList extends React.Component {
     constructor(props) {
         super(props);
@@ -24,7 +20,6 @@ class PeopleList extends React.Component {
     }
 
     render() {
-        // console.log(this.props.people);
         let people = this.props.people.map((name, i) => (
             <Person
                 name={name}
@@ -35,11 +30,15 @@ class PeopleList extends React.Component {
 
         return(
             <div className="List">
-                <div className="PersonEntry">
-                    <form onSubmit={this.handleSubmit}>
-                        <input type="text" value={this.state.value} onChange={this.handleChange} />
-                    </form>
-                </div>
+                <header>
+                    <h1 className="ListHeader">
+                        Lunch Groups
+                    </h1>
+                    <button>
+                        Edit
+                    </button>
+                </header>
+
                 {people}
             </div>
         );

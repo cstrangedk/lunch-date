@@ -35,29 +35,66 @@
   text-align: left;
 }
 
-.List div {
-  /* border-bottom: thin solid #555555; */
+.icons {
+  padding-right: 8px;
+}
+
+.Person {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: none;
+  align-items: center;
+}
+
+.Person .name {
+  flex: 1;
 }
 
 .Cards {
+  background-color: #CCC;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  flex-wrap: wrap;
   flex-grow: 6;
   text-align: left;
   align-items: flex-start;
+  /* justify-content: space-around; */
+
 }
 
 .Card {
   background-color: #FFF;
-  max-width: 120px;
+  width: 120px;
   margin: 15px 15px;
   border-radius: 2px;
   box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
 }
 
+.Card:nth-child(6n+1) {
+  background: red;
+}
+
+.Card:nth-child(6n+2) {
+  background: orange;
+}
+
+.Card:nth-child(6n+3) {
+  background: yellow;
+}
+
+.Card:nth-child(6n+4) {
+  background: green;
+}
+
+.Card:nth-child(6n+5) {
+  background: blue;
+}
+
+.Card:nth-child(6n+6) {
+  background: purple;
+}
+
 .Person {
-  /* display: flex; */
-  /* align-items: center; */
   border-bottom: 1px solid #f1f1f1;
 }
 
@@ -65,12 +102,71 @@
   border-bottom: 0;
 }
 
-p {
+.name {
   margin: 0;
   padding: 8px;
-  /* transition: background 0.2s; */
-  /* flex: 1; */
   font-family: 'helvetica neue';
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 200;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* width: 150px; */
+  white-space: nowrap;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: none;
+  align-items: center;
+  border-bottom: 3px solid #f1f1f1;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 18px;
+  padding: 8px;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: none;
+  white-space: nowrap;
+}
+
+.List .Person {
+  text-overflow: ellipsis;
+
+}
+
+button {
+  font-family: 'helvetica neue';
+  font-size: 14px;
+  font-weight: 500;
+  border: 0px solid #f1f1f1;
+  box-shadow: none;
+  border-radius: 5px;
+  margin-right: 12px;
+  padding: 8px 16px;
+  color: white;
+  background: linear-gradient(180deg, #fa7e29 0%, #F6682F 80%, #F6682F 100%);
+}
+
+button:hover {
+  background-color: lightgreen;
+}
+
+
+.fa {
+  padding: 2px;
+}
+
+.fa-trash-o {
+  padding-left: 8px;
+}
+
+.fa-pencil-square-o:hover {
+  color: green;
+}
+
+.fa-trash-o:hover {
+  color: red;
 }
