@@ -22,30 +22,20 @@ class App extends Component {
   }
 
   componentWillMount() {
-    fetch('http://52.33.141.229:3038/people')
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const targetUrl = 'http://52.33.141.229:3038/people';
+    fetch(proxyUrl + targetUrl)
     .then(response => response.json())
     .then(data => {
       const names = [];
       data.forEach(row => names.push([row.id, row.name]));
       this.setState({ names });
-      }
-    );
+    })
+    .catch( ex => {
+      console.log('exception loading people', ex);
+      return ex;
+    });
   }
-      // return response.text()
-    // .then(function(body) {
-    //   document.body.innerHTML = body
-
-
-    // firebase.database().ref('restaurant').on('value', data => {
-    //   const items = [];
-    //   data.forEach(child => {
-    //     const item = child.val();
-    //     item['key'] = child.key;
-    //     items.push(item);
-    //   });
-    //   this.setState({ items });
-    // });
-
 
   shuffle() {
     let shuffledList = arrayShuffle(this.state.names.map(row => row[1]));
