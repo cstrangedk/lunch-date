@@ -18,38 +18,37 @@ function arrayShuffle(arr) {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      names: [
-        'John Muthill',
-        'Kathy Belrose',
-        'Jack Sanberg',
-        'Jill Stolen',
-        'John Doe',
-        'Niel Stevenson',
-        'Henry Gates',
-        'Luke Skywalker',
-        'Tina Fey',
-        'Irving Chernov',
-        'Vladimir Putin',
-        'Wang Ho',
-        'Frank Doe',
-        'Doopak Landamasky',
-        'Robert Miles',
-        'Hector Morales',
-        'Gerard Nizarros',
-        'Pancho Via',
-        'Guy Fawkes',
-        'Elmer Maricio Cruz Garcia',
-        'Antonio Maria Rossini',
-        'Derek Jennen',
-        'Stephen Jing',
-        'Hooko Wilcox'
-      ]
-    };
+    this.state = { names: [] };
   }
 
+  componentWillMount() {
+    fetch('http://52.33.141.229:3038/people')
+    .then(response => response.json())
+    .then(data => {
+      const names = [];
+      data.forEach(row => names.push([row.id, row.name]));
+      this.setState({ names });
+      }
+    );
+  }
+      // return response.text()
+    // .then(function(body) {
+    //   document.body.innerHTML = body
+
+
+    // firebase.database().ref('restaurant').on('value', data => {
+    //   const items = [];
+    //   data.forEach(child => {
+    //     const item = child.val();
+    //     item['key'] = child.key;
+    //     items.push(item);
+    //   });
+    //   this.setState({ items });
+    // });
+
+
   shuffle() {
-    let shuffledList = arrayShuffle(this.state.names);
+    let shuffledList = arrayShuffle(this.state.names.map(row => row[1]));
     let groups = [];
     for (let i = 0; i < shuffledList.length; i++) {
       if (i % 4 === 0) {
@@ -65,7 +64,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <PeopleList people={this.state.names} />
+        <PeopleList people={this.state.names.map(row => row[1])} />
         <Cards groups={groups}/>
       </div>
     );
