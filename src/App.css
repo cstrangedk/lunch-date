@@ -4,32 +4,8 @@
   background-color: #CCC;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .List {
+  z-index: 2;
   background-color: #FFF;
   flex-grow: 1;
   text-align: left;
@@ -50,52 +26,80 @@
   flex: 1;
 }
 
-.Cards {
+.cardSpace {
+  /* background-image: url("./dan-gold-105699.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  z-index: 1; */
   background-color: #CCC;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-direction: row;
   flex-grow: 6;
+  height: auto;
+}
+
+.cardSpace:after {
+  content: ' ';
+  background-image: url("./dan-gold-105699.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  z-index: 1;
+  /* display: flex; */
+  position: absolute;
+  /* left: 0; */
+  top: 0;
+  width: 100%;
+  height: 150%;
+}
+
+.Cards {
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   text-align: left;
   align-items: flex-start;
-  /* justify-content: space-around; */
-
+  max-height: 0;
 }
 
 .Card {
   background-color: #FFF;
-  width: 120px;
+  width: 8rem;
   margin: 15px 15px;
   border-radius: 2px;
-  box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+  /* box-shadow: 2px 2px 0 rgba(0,0,0,0.1); */
 }
 
-.Card:nth-child(6n+1) {
-  background: red;
+.Card:nth-child(5n+1) {
+  /* background: linear-gradient(180deg, #E80867 0%, #E84020 80%, #E84020 100%) */
+  background:#E84020;
 }
 
-.Card:nth-child(6n+2) {
-  background: orange;
+.Card:nth-child(5n+2) {
+  /* background: linear-gradient(180deg, #FF09E9 0%, #FF0804 80%, #FF0804 100%) */
+  background: #FF0804;
 }
 
-.Card:nth-child(6n+3) {
-  background: yellow;
+.Card:nth-child(5n+3) {
+  /* background: linear-gradient(180deg, #F66B2F 0%, #E80867 80%, #E80867 100%) */
+  background: #E80867;
 }
 
-.Card:nth-child(6n+4) {
-  background: green;
+.Card:nth-child(5n+4) {
+  /* background: linear-gradient(180deg, #E84020 0%, #FF09E9 80%, #FF09E9 100%) */
+  background: #FF09E9;
 }
 
-.Card:nth-child(6n+5) {
-  background: blue;
+.Card:nth-child(5n+5) {
+  /* background: linear-gradient(180deg, #FF0804 0%, #F66B2F 80%, #F66B2F 100%) */
+  background: #F66B2F;
 }
 
-.Card:nth-child(6n+6) {
-  background: purple;
-}
 
 .Person {
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 2px solid #ccc;
 }
 
 .Person:last-child {
@@ -106,7 +110,7 @@
   margin: 0;
   padding: 8px;
   font-family: 'helvetica neue';
-  font-size: 14px;
+  font-size: 0.75rem;
   font-weight: 200;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -124,7 +128,7 @@ header {
 
 h1 {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1rem;
   padding: 8px;
   flex: 1;
   overflow: hidden;
@@ -139,7 +143,7 @@ h1 {
 
 button {
   font-family: 'helvetica neue';
-  font-size: 14px;
+  font-size: 0.75rem;
   font-weight: 500;
   border: 0px solid #f1f1f1;
   box-shadow: none;
@@ -169,4 +173,8 @@ button:hover {
 
 .fa-trash-o:hover {
   color: red;
+}
+
+.Card .Person span {
+  font-size: 0.75rem;
 }

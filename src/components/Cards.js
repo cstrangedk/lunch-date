@@ -16,8 +16,10 @@ class Cards extends React.Component {
         );
 
         return(
-            <div className="Cards">
-                {cards}
+            <div className="cardSpace">
+                <div className="Cards">
+                    {cards}
+                </div>
             </div>
         )
     }
