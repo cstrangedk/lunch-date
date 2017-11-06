@@ -3,18 +3,6 @@ import Cards from './components/Cards';
 import PeopleList from './components/PeopleList';
 import './App.css';
 
-function arrayShuffle(arr) {
-  let retval = arr.slice();
-  let m = retval.length, t, i;
-  while (m) {
-    i = Math.floor(Math.random() * m--);
-    t = retval[m];
-    retval[m] = retval[i];
-    retval[i] = t;
-  }
-  return retval;
-}
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -41,23 +29,62 @@ class App extends Component {
         'Guy Fawkes',
         'Elmer Maricio Cruz Garcia',
         'Antonio Maria Rossini',
-        'Derek Jennen',
-        'Stephen Jing',
-        'Hooko Wilcox'
+        'Stephen Jing'
       ]
     };
   }
 
   shuffle() {
-    let shuffledList = arrayShuffle(this.state.names);
-    let groups = [];
-    for (let i = 0; i < shuffledList.length; i++) {
-      if (i % 4 === 0) {
-        groups.push([]);
+    function arrayShuffle(array) {
+      let retval = array.slice();
+      let m = retval.length, t, i;
+      while (m) {
+        i = Math.floor(Math.random() * m--);
+        t = retval[m];
+        retval[m] = retval[i];
+        retval[i] = t;
       }
-      groups[groups.length-1].push(shuffledList[i]);
+      return retval;
     }
-    return groups;
+
+    function chunk(array, size) {
+      let chunks = [];
+      for (let i = 0; i < array.length; i++) {
+        if (i % size === 0) {
+          chunks.push([]);
+        }
+        chunks[chunks.length-1].push(array[i]);
+      }
+      return chunks;
+    }
+
+    function rebalance(groups) {
+      let last = groups[groups.length-1];
+      if (last.length % 4 === 1) {
+        groups[0].push(last.pop());
+        groups.pop();
+      } else if (last.length % 4 === 2) {
+        groups[0].push(last.pop());
+        groups[1].push(last.pop());
+        groups.pop();
+      }
+      return groups;
+    }
+
+    function createGroups(list) {
+      if (list.length === 0) {
+        return [[]];
+      } else if (list.length <= 5) {
+        return chunk(list, 5);
+      } else if (list.length === 6) {
+        return chunk(list, 3);
+      } else {
+        return rebalance(chunk(list, 4));
+      }
+    }
+
+    let shuffledList = arrayShuffle(this.state.names);
+    return createGroups(shuffledList);
   }
 
   render() {
